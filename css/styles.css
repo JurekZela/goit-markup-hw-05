@@ -149,6 +149,10 @@ body {
   transform: scaleX(1);
 }
 
+.link-header.current {
+  color: var(--pressed-state);
+}
+
 .link-header:hover,
 .link-header:focus {
   color: var(--hover-focus);
@@ -209,8 +213,7 @@ body {
   color: var(--primary-header);
   background-color: var(--btn);
   border: var(--btn);
-  transition: border-radius var(--taming-duration) var(--taming-cubic),
-    background-color var(--taming-duration) var(--taming-cubic);
+  transition: background-color var(--taming-duration) var(--taming-cubic);
 }
 
 .hero-btn:hover,
@@ -447,8 +450,7 @@ body {
   padding: 0px;
   background-color: var(--btn);
 
-  transition: border-radius var(--taming-duration) var(--taming-cubic),
-    color var(--taming-duration) var(--taming-cubic);
+  transition: color var(--taming-duration) var(--taming-cubic);
 }
 
 .btn-icon:hover,
@@ -492,14 +494,12 @@ body {
 
   transition: border-radius var(--taming-duration) var(--taming-cubic),
     color var(--taming-duration) var(--taming-cubic);
-  transform-origin: left;
 }
 
 .icon-customers:hover,
 .icon-customers:focus {
   border-color: var(--pressed-state);
   color: var(--pressed-state);
-  transform-origin: right;
 }
 
 .logo-icon {
@@ -516,14 +516,6 @@ body {
 }
 
 /*btn portfolio----------------------------------*/
-
-.link-btn:hover,
-.link-btn:focus {
-  background-color: var(--pressed-state);
-  color: var(--primary-header);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
-}
 
 .btn-block {
   margin-bottom: 72px;
@@ -545,18 +537,27 @@ body {
   border: 1px solid #e7e9fc;
   padding: 12px 24px;
   border-radius: 4px;
-
-  cursor: pointer;
-  color: var(--btn);
-  background-color: var(--accent);
-}
-.link-btn {
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.33;
   letter-spacing: 0.04em;
-  transition: background-color var(--taming-duration) var(--taming-cubic);
+  transition: background-color var(--taming-duration) var(--taming-cubic),
+    color var(--taming-duration) var(--taming-cubic),
+    box-shadow var(--taming-duration) var(--taming-cubic);
+
+  cursor: pointer;
+  color: var(--btn);
+  background-color: var(--accent);
+}
+
+.link-btn:hover,
+.link-btn:focus {
+  background-color: var(--pressed-state);
+  color: var(--primary-header);
+
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 /*-------------------------BTN-----------------------*/
 .btn-all {
@@ -617,11 +618,6 @@ body {
   transition: transform var(--taming-duration) var(--taming-cubic);
 }
 
-.project-card:hover .product-overlay,
-.project-card:focus .product-overlay {
-  transform: translateY(0);
-}
-
 .text-img {
   position: absolute;
   left: 32px;
@@ -633,7 +629,10 @@ body {
 }
 
 .message:hover,
-.message:focus {
+.message:focus,
+.message:hover .product-overlay,
+.message:focus .product-overlay {
+  transform: translateY(0);
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
@@ -741,8 +740,7 @@ body {
   border: none;
   padding: 0px;
 
-  transition: border-radius var(--taming-duration) var(--taming-cubic),
-    background-color var(--taming-duration) var(--taming-cubic);
+  transition: background-color var(--taming-duration) var(--taming-cubic);
 }
 
 .icon-footer:hover,
@@ -770,7 +768,7 @@ body {
   display: flex;
   justify-content: right;
   position: absolute;
-  top: 39.5%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 408px;
@@ -779,12 +777,25 @@ body {
 }
 
 .modal-btn {
-  margin-top: 24px;
-  margin-right: 24px;
   content: "";
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  right: 24px;
   width: 24px;
   height: 24px;
   background-color: var(--accent);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+}
+
+.modal .modal-btn:hover,
+.modal .modal-btn:focus {
+  fill: var(--primary-header);
+  background-color: var(--hover-focus);
+}
+
+.vector {
+  width: 8px;
+  height: 8px;
 }
